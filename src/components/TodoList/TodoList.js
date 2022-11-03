@@ -4,7 +4,8 @@ import NoTasks from '../NoTasks/NoTasks';
 
 import './todoList.scss';
 
-const TodoList = ({tasks}) => {
+const TodoList = ({tasks , deleteTask}) => {
+    
     const renderTodos = (arr) => {
         return (
             <ul className="todoList__list">
@@ -14,6 +15,7 @@ const TodoList = ({tasks}) => {
                             key={id} 
                             text={text} 
                             isChecked={false}
+                            deleteTask={() => deleteTask(id)} 
                         />
                     )
                 })}
