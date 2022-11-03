@@ -1,6 +1,6 @@
 import './todoItem.scss';
 
-const TodoItem = ({text , isChecked , deleteTask}) => {
+const TodoItem = ({text , isChecked , deleteTask , toggleCheckTask}) => {
 
     const todoItemTextClassNames = isChecked ? "todoItem__text todoItem__text-crossed" : "todoItem__text";
 
@@ -18,12 +18,14 @@ const TodoItem = ({text , isChecked , deleteTask}) => {
 
     return (
         <li className="todoItem" tabIndex="0">
-            <div className="todoItem__checkbox" >
+            <div className="todoItem__checkbox" onClick={toggleCheckTask} >
                 {isChecked ? checked : unchecked}
                 <input readOnly checked={isChecked} type="checkbox" />
             </div>
             <div className={todoItemTextClassNames}>{text}</div>
-            <div className="todoItem__delete" onClick={deleteTask} >
+            <div className="todoItem__delete"
+                onClick={deleteTask}
+                >
                 <span></span>
                 <span></span>
             </div>
