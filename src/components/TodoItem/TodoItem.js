@@ -1,6 +1,8 @@
 import './todoItem.scss';
 
-const TodoItem = () => {
+const TodoItem = ({text , isChecked}) => {
+
+    const todoItemTextClassNames = isChecked ? "todoItem__text todoItem__text-crossed" : "todoItem__text";
 
     const unchecked = (
         <svg className="todoItem__checkbox_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000">
@@ -16,10 +18,11 @@ const TodoItem = () => {
 
     return (
         <li className="todoItem" tabIndex="0">
-            <div className="todoItem__checkbox">
-                <input type="checkbox" />
+            <div className="todoItem__checkbox" >
+                {isChecked ? checked : unchecked}
+                <input readOnly checked={isChecked} type="checkbox" />
             </div>
-            <div className="todoItem__text">To Do</div>
+            <div className={todoItemTextClassNames}>{text}</div>
             <div className="todoItem__delete">
                 <span></span>
                 <span></span>

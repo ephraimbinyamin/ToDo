@@ -1,11 +1,31 @@
+import TodoItem from "../TodoItem/TodoItem";
+
 import NoTasks from '../NoTasks/NoTasks';
 
 import './todoList.scss';
 
-const TodoList = () => {
+const TodoList = ({tasks}) => {
+    const renderTodos = (arr) => {
+        return (
+            <ul className="todoList__list">
+                {arr.map(({id , text}) => {
+                    return (
+                        <TodoItem 
+                            key={id} 
+                            text={text} 
+                            isChecked={false}
+                        />
+                    )
+                })}
+            </ul>
+        )
+    }
+
+    const renderedTasks = renderTodos(tasks);
+
     return (
         <div className="todoList">
-            <NoTasks/>
+            {tasks.length > 0 ? renderedTasks : <NoTasks/>}
         </div>
     );
 };
