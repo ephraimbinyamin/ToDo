@@ -1,0 +1,94 @@
+@import '../../style/variables.scss';
+
+.todoItem {
+    position: relative;
+    z-index: 5;
+    min-height: 40px;
+    width: 100%;
+    padding: 9px 50px;
+    border: 1px solid $lightgrey;
+    list-style-type: none;
+    &:hover {
+        .todoItem__delete span {
+            background-color: black;
+        }
+    }
+    &:focus {
+        z-index: 10;
+        border: 1px solid black;
+    }
+    &:first-child {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    &:last-child {
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    &:not(:first-child) {
+        margin-top: -1px;
+    }
+    &__checkbox {
+        position: absolute;
+        top: 10.5px;
+        left: 25px;
+        height: 17px;
+        width: 17px;
+        cursor: pointer;
+        &_icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            fill: grey;
+            transition: all 0.3s;
+            &:hover {
+                fill: black;
+            }
+        }
+        input {
+            display: none;
+        }
+    }
+    &__text {
+        width: 500px;
+        word-wrap: break-word;
+        &-crossed {
+            color: grey;
+            text-decoration: line-through;
+        }
+    }
+    &__delete {
+        position: absolute;
+        top: 8px;
+        right: 20px;
+        height: 22px;
+        width: 22px;
+        background-color: transparent;
+        border-radius: 50%;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(95,99,104,0.157);
+        }
+        span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: -0.5px auto 0;
+            top: 50%;
+            height: 1px;
+            width: 16px;
+            border-radius: 1px;
+            background-color: transparent;
+            transition: all 0.3s;
+            &:first-child {
+                transform: rotate(45deg);
+            }
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

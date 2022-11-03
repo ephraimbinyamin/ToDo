@@ -1,0 +1,33 @@
+@import '../../style/buttons.scss';
+@import '../../style/variables.scss';
+
+.todoAddInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-top: 20px;
+    &__input {
+        display: block;
+        height: 100%;
+        width: 525px;
+        border: 1px solid $lightgrey;
+        border-radius: 4px;
+        box-shadow: $box-shadow;
+        padding: 15px;
+        transition: all 0.3s;
+        &:hover {
+            border: 1px solid black;
+        }
+        &:focus {
+            outline: none;
+            border: 1px solid black;
+        }
+        &::placeholder {
+            color: $lightgrey;
+        }
+    }
+    &__btn {
+        width: 60px;
+    }
+}

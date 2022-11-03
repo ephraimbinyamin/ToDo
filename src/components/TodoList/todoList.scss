@@ -1,0 +1,10 @@
+@import '../../style/variables.scss';
+
+.todoList {
+    margin-top: 15px;
+    &__list {
+        list-style-type: none;
+        box-shadow: $box-shadow;
+        border-radius: 5px;
+    }
+}

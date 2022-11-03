@@ -1,0 +1,13 @@
+@import '../../style/variables.scss';
+
+.error {
+    text-align: center;
+    &__icon {
+        height: 120px;
+        width: 120px;
+    }
+    &__text {
+        font-size: 24px;
+        color: $status-text-color;
+    }
+}
