@@ -16,8 +16,14 @@
     &:focus {
         z-index: 10;
         border: 1px solid black;
+        .todoItem__delete span {
+            background-color: black;
+        }
         @media (max-width: 767px) {
             border: 1px solid $lightgrey;
+            .todoItem__delete {
+                display: block;
+            }
         }
     }
     &:first-child {
@@ -91,8 +97,12 @@
         cursor: pointer;
         &:hover {
             background-color: rgba(95,99,104,0.157);
+            @media (max-width: 767px) {
+                background-color: transparent;
+            }
         }
         @media (max-width: 767px) {
+            display: none;
             cursor: default;
         }
         span {
