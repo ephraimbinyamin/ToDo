@@ -2,15 +2,16 @@
 @import '../../style/variables.scss';
 
 .todoAddInput {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    justify-content: normal;
+    grid-template: 40px / auto 60px;
+    gap: 15px;
     height: 40px;
     margin-top: 20px;
     &__input {
         display: block;
         height: 100%;
-        width: 525px;
+        width: 100%;
         border: 1px solid $lightgrey;
         border-radius: 4px;
         box-shadow: $box-shadow;

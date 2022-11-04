@@ -5,7 +5,7 @@
     z-index: 5;
     min-height: 40px;
     width: 100%;
-    padding: 9px 50px;
+    padding: 9.5px 50px;
     border: 1px solid $lightgrey;
     list-style-type: none;
     &:hover {
@@ -16,6 +16,9 @@
     &:focus {
         z-index: 10;
         border: 1px solid black;
+        @media (max-width: 767px) {
+            border: 1px solid $lightgrey;
+        }
     }
     &:first-child {
         border-top-right-radius: 5px;
@@ -30,21 +33,38 @@
     }
     &__checkbox {
         position: absolute;
-        top: 10.5px;
-        left: 25px;
-        height: 17px;
-        width: 17px;
+        top: 9.5px;
+        left: 22px;
+        height: 19px;
+        width: 19px;
         cursor: pointer;
+        @media (max-width: 767px) {
+            cursor: default;
+        }
         &_icon {
             position: absolute;
             top: 0;
             left: 0;
             height: 100%;
             width: 100%;
-            fill: grey;
             transition: all 0.3s;
-            &:hover {
-                fill: black;
+            &-unchecked {
+                fill: grey;
+                &:hover {
+                    fill: black;
+                }
+                @media (max-width: 767px) {
+                    fill: black;
+                }
+            }
+            &-checked {
+                fill: grey;
+                &:hover {
+                    fill: black;
+                    @media (max-width: 767px) {
+                        fill: grey;
+                    }
+                }
             }
         }
         input {
@@ -52,7 +72,7 @@
         }
     }
     &__text {
-        width: 500px;
+        max-width: 500px;
         word-wrap: break-word;
         &-crossed {
             color: grey;
@@ -71,6 +91,9 @@
         cursor: pointer;
         &:hover {
             background-color: rgba(95,99,104,0.157);
+        }
+        @media (max-width: 767px) {
+            cursor: default;
         }
         span {
             position: absolute;

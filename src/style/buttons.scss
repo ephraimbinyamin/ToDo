@@ -12,5 +12,18 @@
         color: #fff;
         background-color: #4d4d4d;
         border: 1px solid #4d4d4d;
+        @media (max-width: 767px) {
+            color: #808080;
+            background-color: white;
+            border: 1px solid #b3b3b3;
+        }
+    }
+    @media (max-width: 767px) {
+        cursor: default;
+        &:active {
+            color: #fff;
+            background-color: #4d4d4d;
+            border: 1px solid #4d4d4d;
+        }
     }
 }
