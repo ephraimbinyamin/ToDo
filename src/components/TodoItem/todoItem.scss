@@ -80,6 +80,7 @@
     &__text {
         max-width: 500px;
         word-wrap: break-word;
+        white-space: pre-wrap;
         &-crossed {
             color: grey;
             text-decoration: line-through;

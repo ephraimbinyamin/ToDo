@@ -22,7 +22,7 @@ const TodoAddInput = ({addTask}) => {
                     onChange={(e) => setTask(e.target.value)} 
                     value={task}
                     onKeyPress={(e) => {
-                        if(e.key === "Enter") {
+                        if(e.key === "Enter" && task !== '') {
                             addTask({id: nanoid() , text: task , isChecked: false});
                             setTask('');
                             focusOnTodoAddInput();
@@ -31,9 +31,11 @@ const TodoAddInput = ({addTask}) => {
                     />
             <button className="btn todoAddInput__btn"
                     onClick={() => {
-                        addTask({id: nanoid() , text: task , isChecked: false});
-                        setTask('');
-                        focusOnTodoAddInput();
+                        if(task !== '') {
+                            addTask({id: nanoid() , text: task , isChecked: false});
+                            setTask('');
+                            focusOnTodoAddInput();
+                        }
                     }}
                     >Add</button>
         </div>
