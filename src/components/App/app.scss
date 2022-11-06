@@ -1,12 +1,16 @@
 @import '../../style/variables.scss';
 
 .app {
+    position: relative;
     max-width: 600px;
     margin: 0 auto;
     padding: 100px 20px;
     &__header {
-        color: $grey;
+        color: var(--header-color);
         font-size: 45px;
         text-align: center;
+        @media (max-width: 767px) {
+            color: var(--header-mobile-color);
+        }
     }
 }

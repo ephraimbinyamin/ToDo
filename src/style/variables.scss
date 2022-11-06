@@ -1,12 +1,66 @@
-// === Color ===
-$grey: #808080;
-$lightgrey: #b3b3b3;
-$btn-hover-color: #4d4d4d;
-$status-icon-color: #d9d9d9;
-$status-text-color: #a6a6a6;
-$spinner-color: #5f6368;
-// === / Color ===
+// Light Theme
+body.light {
+    --background-color: #fff;
+    --header-color: #808080;
+    --header-mobile-color: #808080;
+    --text-color: #000;
+    --text-mobile-color: #000;
+    --text-crossed-color: #808080;
+    --input-placeholder: #b3b3b3;
+    
+    --task-btns-color: #808080;
+    --task-btns-hover-color: #000;
+    --task-btns-mobile-color: #000;
 
-// === Shadows ===
-$box-shadow: 0 0 2px 0 rgb(60 64 67 / 30%), 0 1px 6px 2px rgb(60 64 67 / 15%);
-// === / Shadows ===
+    --btn-text-color: #808080;
+    --btn-text-hover-active-color: #fff;
+    --btn-background-color: #fff;
+    --btn-background-hover-active-color: #4d4d4d;
+    --btn-border-color: #b3b3b3;
+    --btn-border-hover-active-color: #4d4d4d;
+
+    --border-color: #b3b3b3;
+    --border-hover-focus-color: #000;
+
+    --status-icon-color: #d9d9d9;
+    --status-text-color: #a6a6a6;
+
+    --theme-icon-color: #808080;
+    --theme-icon-hover-color: #000;
+
+    --box-shadow: 0 0 2px 0 rgb(60 64 67 / 30%), 0 1px 6px 2px rgb(60 64 67 / 15%);
+}
+
+// Dark Theme
+body.dark {
+    --app-background-color: #202124;
+    --header-color: #e8eaed;
+    --header-mobile-color: #fff;
+    --text-color: #e8eaed;
+    --text-mobile-color: #fff;
+
+    --text-crossed-color: #808080;
+    --input-placeholder: #b3b3b3;
+
+    --task-btns-color: #808080;
+    --task-btns-hover-color: #fff;
+    --task-btns-mobile-color: #e8eaed;
+
+    --btn-text-color: #b3b3b3;
+    --btn-text-hover-active-color: #fff;
+    --btn-background-color: #202124;
+    --btn-background-hover-active-color: #202124;
+    --btn-border-color: #5f6368;
+    --btn-border-hover-active-color: #fff;
+
+    --border-color: #5f6368;
+    --border-hover-focus-color: #fff;
+
+    --status-icon-color: #6e6e70;
+    --status-text-color: #9aa0a6;
+
+    --theme-icon-color: #808080;
+    --theme-icon-hover-color: #fff;
+
+    --box-shadow: none;
+}

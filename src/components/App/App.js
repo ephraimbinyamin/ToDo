@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import TodoAddInput from "../TodoAddInput/TodoAddInput";
 import TodoList from "../TodoList/TodoList";
+import ThemeChanger from "../ThemeChanger/ThemeChanger";
 
 import './app.scss';
 
@@ -55,6 +56,7 @@ const App = () => {
                 deleteTask={deleteTask} 
                 editTask={editTask}
                 toggleCheckTask={toggleCheckTask} />
+            <ThemeChanger/>
         </div>
     );
 };

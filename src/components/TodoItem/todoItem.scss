@@ -21,26 +21,26 @@
         width: 100%;
         padding: 9px 81px 9px 50px;
         border-radius: inherit;
-        border: 1px solid $lightgrey;
+        border: 1px solid var(--border-color);
         &:hover {
             .todoItem__task_btn {
                 &-delete {
                     span {
-                        background-color: $grey;
+                        background-color: var(--task-btns-color);
                     }
                     &:hover {
                         span {
-                            background-color: black;
+                            background-color: var(--task-btns-hover-color);
                         }
                     }
                 }
                 &-edit {
                     svg {
-                        fill: $grey;
+                        fill: var(--task-btns-color);
                     }
                     &:hover {
                         svg {
-                            fill: black;
+                            fill: var(--task-btns-hover-color);
                         }
                     }
                 }
@@ -48,38 +48,38 @@
         }
         &:focus {
             z-index: 10;
-            border: 1px solid black;
+            border: 1px solid var(--border-hover-focus-color);
             .todoItem {
                 &__task_btn {
                     &-delete {
                         span {
-                            background-color: $grey;
+                            background-color: var(--task-btns-color);
                         }
                         &:hover {
                             span {
-                                background-color: black;
+                                background-color: var(--task-btns-hover-color);
                             }
                         }
                         @media (max-width: 767px) {
                             display: block;
                             span {
-                                background-color: black;
+                                background-color: var(--task-btns-mobile-color);
                             }
                         }
                     }
                     &-edit {
                         svg {
-                            fill: $grey;
+                            fill: var(--task-btns-color);
                         }
                         &:hover {
                             svg {
-                                fill: black;
+                                fill: var(--task-btns-hover-color);
                             }
                         }
                         @media (max-width: 767px) {
                             display: block;
                             svg {
-                                fill: black;
+                                fill: var(--task-btns-mobile-color);
                             }
                         }
                     }
@@ -105,20 +105,20 @@
                     width: 100%;
                     transition: all 0.3s;
                     &-unchecked {
-                        fill: $grey;
+                        fill: var(--task-btns-color);
                         &:hover {
-                            fill: black;
+                            fill: var(--task-btns-hover-color);
                         }
                         @media (max-width: 767px) {
-                            fill: black;
+                            fill: var(--task-btns-mobile-color);
                         }
                     }
                     &-checked {
-                        fill: $grey;
+                        fill: var(--task-btns-color);
                         &:hover {
-                            fill: black;
+                            fill: var(--task-btns-hover-color);
                             @media (max-width: 767px) {
-                                fill: $grey;
+                                fill: var(--task-btns-color);
                             }
                         }
                     }
@@ -176,12 +176,16 @@
             }
         }
         &_text {
+            color: var(--text-color);
             font-size: 17px;
             max-width: 500px;
             word-wrap: break-word;
             white-space: pre-wrap;
+            @media (max-width: 767px) {
+                color: var(--text-mobile-color);
+            }
             &-crossed {
-                color: $grey;
+                color: var(--text-crossed-color);
                 text-decoration: line-through;
             }
         }
@@ -191,14 +195,16 @@
         position: relative;
         min-height: 40px;
         width: 100%;
-        padding: 9px 50px 9px 30px;
+        padding: 9px 50px 9px 20px;
         border-radius: inherit;
-        border: 1px solid $lightgrey;
+        border: 1px solid var(--border-color);
         &_field {
+            color: var(--text-color);
+            background-color: transparent;
             width: 100%;
             outline: none;
             border: none;
-            border-bottom: 1px solid $grey;
+            border-bottom: 1px solid var(--border-color);
             padding: 0 10px;
         }
         &_btn {
@@ -217,15 +223,15 @@
                     top: 50%;
                     left: 50%;
                     transform: translate(-50% , -50%);
-                    fill: $grey;
+                    fill: var(--task-btns-color);
                     transition: all 0.3s;
                     @media (max-width: 767px) {
-                        fill: black;
+                        fill: var(--task-btns-mobile-color);
                     }
                 }
                 &:hover {
                     svg {
-                        fill: black;
+                        fill: var(--task-btns-hover-color);
                     }
                 }
             }

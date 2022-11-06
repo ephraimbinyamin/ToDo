@@ -1,0 +1,28 @@
+// @import '../../style/variables.scss';
+
+.themeChanger {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    svg {
+        transition: all 0.3s;
+        fill: var(--theme-icon-color);
+    }
+    &:hover {
+        svg {
+            fill: var(--theme-icon-hover-color)
+        }
+        @media (max-width: 767px) {
+            svg {
+                fill: var(--theme-icon-color);
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        cursor: default;
+    }
+}

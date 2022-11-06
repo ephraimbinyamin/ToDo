@@ -5,9 +5,10 @@
     &__icon {
         height: 120px;
         width: 120px;
+        fill: var(--status-icon-color);
     }
     &__text {
         font-size: 24px;
-        color: $status-text-color;
+        color: var(--status-text-color);
     }
 }

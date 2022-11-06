@@ -7,26 +7,27 @@
     grid-template: 40px / auto 60px;
     gap: 15px;
     height: 40px;
-    margin-top: 20px;
+    margin-top: 30px;
     &__input {
+        color: var(--text-color);
         display: block;
         height: 100%;
         width: 100%;
         background-color: transparent;
-        border: 1px solid $lightgrey;
+        border: 1px solid var(--border-color);
         border-radius: 4px;
-        box-shadow: $box-shadow;
+        box-shadow: var(--box-shadow);
         padding: 15px;
         transition: all 0.3s;
         &:hover {
-            border: 1px solid black;
+            border: 1px solid var(--border-hover-focus-color);
         }
         &:focus {
             outline: none;
-            border: 1px solid black;
+            border: 1px solid var(--border-hover-focus-color);
         }
         &::placeholder {
-            color: $lightgrey;
+            color: var(--input-placeholder);
         }
     }
     &__btn {
