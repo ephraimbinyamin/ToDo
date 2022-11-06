@@ -12,6 +12,7 @@
         display: block;
         height: 100%;
         width: 100%;
+        background-color: transparent;
         border: 1px solid $lightgrey;
         border-radius: 4px;
         box-shadow: $box-shadow;
@@ -30,5 +31,6 @@
     }
     &__btn {
         width: 60px;
+        background-color: transparent;
     }
 }
