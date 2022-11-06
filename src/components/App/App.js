@@ -32,11 +32,29 @@ const App = () => {
         setTasks([...newTaskList]);
     };
 
+    const editTask = (id , text) => {
+        const newTaskList = tasks.map((item) => {
+            if(item.id == id) {
+                return {
+                    id: item.id,
+                    text: text,
+                    isChecked: item.isChecked
+                };
+            }
+            return item;
+        });
+        setTasks([...newTaskList]);
+    };
+
     return (
         <div className="app">
             <h1 className="app__header">To Do List</h1>
             <TodoAddInput addTask={addTask} />
-            <TodoList tasks={tasks} deleteTask={deleteTask} toggleCheckTask={toggleCheckTask} />
+            <TodoList 
+                tasks={tasks} 
+                deleteTask={deleteTask} 
+                editTask={editTask}
+                toggleCheckTask={toggleCheckTask} />
         </div>
     );
 };

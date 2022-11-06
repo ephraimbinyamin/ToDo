@@ -1,31 +1,7 @@
 @import '../../style/variables.scss';
 
 .todoItem {
-    position: relative;
-    z-index: 5;
-    min-height: 40px;
-    width: 100%;
-    padding: 9.5px 50px;
-    border: 1px solid $lightgrey;
     list-style-type: none;
-    &:hover {
-        .todoItem__delete span {
-            background-color: black;
-        }
-    }
-    &:focus {
-        z-index: 10;
-        border: 1px solid black;
-        .todoItem__delete span {
-            background-color: black;
-        }
-        @media (max-width: 767px) {
-            border: 1px solid $lightgrey;
-            .todoItem__delete {
-                display: block;
-            }
-        }
-    }
     &:first-child {
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
@@ -37,91 +13,228 @@
     &:not(:first-child) {
         margin-top: -1px;
     }
-    &__checkbox {
-        position: absolute;
-        top: 9.5px;
-        left: 22px;
-        height: 19px;
-        width: 19px;
-        cursor: pointer;
-        @media (max-width: 767px) {
-            cursor: default;
-        }
-        &_icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            transition: all 0.3s;
-            &-unchecked {
-                fill: grey;
-                &:hover {
-                    fill: black;
+    &__task {
+        display: block;
+        position: relative;
+        z-index: 5;
+        min-height: 40px;
+        width: 100%;
+        padding: 9.5px 81px 9.5px 50px;
+        border-radius: inherit;
+        border: 1px solid $lightgrey;
+        &:hover {
+            .todoItem__task_btn {
+                &-delete {
+                    border: 1.5px solid $grey;
+                    span {
+                        background-color: $grey;
+                    }
+                    &:hover {
+                        border: 1.5px solid black;
+                        span {
+                            background-color: black;
+                        }
+                    }
                 }
-                @media (max-width: 767px) {
-                    fill: black;
-                }
-            }
-            &-checked {
-                fill: grey;
-                &:hover {
-                    fill: black;
-                    @media (max-width: 767px) {
-                        fill: grey;
+                &-edit {
+                    svg {
+                        fill: $grey;
+                    }
+                    &:hover {
+                        svg {
+                            fill: black;
+                        }
                     }
                 }
             }
         }
-        input {
-            display: none;
+        &:focus {
+            z-index: 10;
+            border: 1px solid black;
+            .todoItem {
+                &__task_btn {
+                    &-delete {
+                        border: 1.5px solid $grey;
+                        span {
+                            background-color: $grey;
+                        }
+                        &:hover {
+                            border: 1.5px solid black;
+                            span {
+                                background-color: black;
+                            }
+                        }
+                        @media (max-width: 767px) {
+                            display: block;
+                            border: 1.5px solid black;
+                            span {
+                                background-color: black;
+                            }
+                        }
+                    }
+                    &-edit {
+                        svg {
+                            fill: $grey;
+                        }
+                        &:hover {
+                            svg {
+                                fill: black;
+                            }
+                        }
+                        @media (max-width: 767px) {
+                            display: block;
+                            svg {
+                                fill: black;
+                            }
+                        }
+                    }
+                }
+            }
         }
-    }
-    &__text {
-        max-width: 500px;
-        word-wrap: break-word;
-        white-space: pre-wrap;
-        &-crossed {
-            color: grey;
-            text-decoration: line-through;
-        }
-    }
-    &__delete {
-        position: absolute;
-        top: 8px;
-        right: 20px;
-        height: 22px;
-        width: 22px;
-        background-color: transparent;
-        border-radius: 50%;
-        transition: all 0.3s;
-        cursor: pointer;
-        &:hover {
-            background-color: rgba(95,99,104,0.157);
-            @media (max-width: 767px) {
+        &_btn {
+            &-checkbox {
+                position: absolute;
+                top: 9.5px;
+                left: 22px;
+                height: 19px;
+                width: 19px;
+                cursor: pointer;
+                @media (max-width: 767px) {
+                    cursor: default;
+                }
+                &_icon {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    transition: all 0.3s;
+                    &-unchecked {
+                        fill: $grey;
+                        &:hover {
+                            fill: black;
+                        }
+                        @media (max-width: 767px) {
+                            fill: black;
+                        }
+                    }
+                    &-checked {
+                        fill: $grey;
+                        &:hover {
+                            fill: black;
+                            @media (max-width: 767px) {
+                                fill: $grey;
+                            }
+                        }
+                    }
+                }
+                input {
+                    display: none;
+                }
+            }
+            &-edit {
+                position: absolute;
+                top: 10.5px;
+                right: 48px;
+                height: 16px;
+                width: 16px;
+                cursor: pointer;
+                @media (max-width: 767px) {
+                    display: none;
+                    cursor: default;
+                }
+                svg {
+                    fill: transparent;
+                    transition: all 0.3s;
+                }
+            }
+            &-delete {
+                position: absolute;
+                top: 11px;
+                right: 17px;
+                height: 16px;
+                width: 16px;
                 background-color: transparent;
+                border: 1.5px solid transparent;
+                border-radius: 50%;
+                transition: all 0.3s;
+                cursor: pointer;
+                @media (max-width: 767px) {
+                    display: none;
+                    cursor: default;
+                }
+                span {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: -0.5px auto 0;
+                    top: 50%;
+                    height: 1.25px;
+                    width: 11px;
+                    border-radius: 1px;
+                    background-color: transparent;
+                    transition: all 0.3s;
+                    &:first-child {
+                        transform: rotate(45deg);
+                    }
+                    &:last-child {
+                        transform: rotate(-45deg);
+                    }
+                }
             }
         }
-        @media (max-width: 767px) {
-            display: none;
-            cursor: default;
-        }
-        span {
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: -0.5px auto 0;
-            top: 50%;
-            height: 1px;
-            width: 16px;
-            border-radius: 1px;
-            background-color: transparent;
-            transition: all 0.3s;
-            &:first-child {
-                transform: rotate(45deg);
+        &_text {
+            max-width: 500px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            &-crossed {
+                color: $grey;
+                text-decoration: line-through;
             }
-            &:last-child {
-                transform: rotate(-45deg);
+        }
+    }
+    &__edit {
+        display: none;
+        position: relative;
+        min-height: 40px;
+        width: 100%;
+        padding: 9px 50px 9px 30px;
+        border-radius: inherit;
+        border: 1px solid $lightgrey;
+        &_field {
+            width: 100%;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid $grey;
+            padding: 0 10px;
+        }
+        &_btn {
+            &-save {
+                position: absolute;
+                top: 11px;
+                right: 17px;
+                height: 16px;
+                width: 16px;
+                cursor: pointer;
+                @media (max-width: 767px) {
+                    cursor: default;
+                }
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50% , -50%);
+                    fill: $grey;
+                    transition: all 0.3s;
+                    @media (max-width: 767px) {
+                        fill: black;
+                    }
+                }
+                &:hover {
+                    svg {
+                        fill: black;
+                    }
+                }
             }
         }
     }

@@ -4,17 +4,20 @@ import NoTasks from "../NoTasks/NoTasks";
 
 import './todoList.scss';
 
-const TodoList = ({tasks , deleteTask , toggleCheckTask}) => {
+const TodoList = ({tasks , deleteTask , editTask , toggleCheckTask}) => {
 
     const renderTodos = (arr) => {
         return (
             <ul className="todoList__list">
-                {arr.map(({id , text , isChecked}) => {
+                {arr.map(({id , text , isChecked} , i) => {
                     return (
                         <TodoItem 
                             key={id} 
+                            id={id}
+                            todoNum={i}
                             text={text} 
                             isChecked={isChecked} 
+                            editTask={editTask}
                             deleteTask={() => deleteTask(id)} 
                             toggleCheckTask={() => toggleCheckTask(id)} 
                         />
