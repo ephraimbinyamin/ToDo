@@ -1,8 +1,8 @@
-import './themeChanger.scss';
+import './theme.scss';
 
-const ThemeChanger = () => {
+const Theme = () => {
     return (
-        <div className="themeChanger"
+        <div className="theme"
             onClick={() => {
                 const body = document.body;
                 body.classList.toggle('light');
@@ -15,4 +15,4 @@ const ThemeChanger = () => {
     )
 };
 
-export default ThemeChanger;
+export default Theme;

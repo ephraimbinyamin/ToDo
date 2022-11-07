@@ -4,7 +4,7 @@ import NoTasks from "../NoTasks/NoTasks";
 
 import './todoList.scss';
 
-const TodoList = ({tasks , deleteTask , editTask , toggleCheckTask}) => {
+const TodoList = ({tasks , editTask , deleteTask , toggleCheckTask}) => {
 
     const renderTodos = (arr) => {
         return (
@@ -33,7 +33,7 @@ const TodoList = ({tasks , deleteTask , editTask , toggleCheckTask}) => {
         <div className="todoList">
             {tasks.length > 0 ? renderedTasks : <NoTasks/>}
         </div>
-    );
+    )
 };
 
 export default TodoList;

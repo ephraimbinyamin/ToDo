@@ -2,12 +2,12 @@ import { useState } from "react";
 
 import TodoAddInput from "../TodoAddInput/TodoAddInput";
 import TodoList from "../TodoList/TodoList";
-import ThemeChanger from "../ThemeChanger/ThemeChanger";
+import Theme from "../Theme/Theme";
 
 import './app.scss';
 
 const App = () => {
-    
+
     const [tasks , setTasks] = useState([]);
 
     const addTask = (task) => {
@@ -54,9 +54,10 @@ const App = () => {
             <TodoList 
                 tasks={tasks} 
                 deleteTask={deleteTask} 
-                editTask={editTask}
-                toggleCheckTask={toggleCheckTask} />
-            <ThemeChanger/>
+                toggleCheckTask={toggleCheckTask} 
+                editTask={editTask} 
+            />
+            <Theme/>
         </div>
     );
 };

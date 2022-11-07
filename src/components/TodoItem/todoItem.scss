@@ -49,6 +49,10 @@
         &:focus {
             z-index: 10;
             border: 1px solid var(--border-hover-focus-color);
+            @media (max-width: 767px) {
+                z-index: 5;
+                border: 1px solid var(--border-color);
+            }
             .todoItem {
                 &__task_btn {
                     &-delete {
@@ -86,6 +90,10 @@
                 }
             }
         }
+        @media (max-width: 767px) {
+            min-height: 48px;
+            padding: 13px 81px 13px 50px;
+        }
         &_btn {
             &-checkbox {
                 position: absolute;
@@ -96,6 +104,7 @@
                 cursor: pointer;
                 @media (max-width: 767px) {
                     cursor: default;
+                    top: 15px;
                 }
                 &_icon {
                     position: absolute;
@@ -137,6 +146,7 @@
                 @media (max-width: 767px) {
                     display: none;
                     cursor: default;
+                    top: 14.5px;
                 }
                 svg {
                     fill: transparent;
@@ -155,6 +165,7 @@
                 @media (max-width: 767px) {
                     display: none;
                     cursor: default;
+                    top: 15px;
                 }
                 span {
                     position: absolute;
@@ -200,6 +211,7 @@
         border: 1px solid var(--border-color);
         &_field {
             color: var(--text-color);
+            font-size: 17px;
             background-color: transparent;
             width: 100%;
             outline: none;
@@ -217,6 +229,7 @@
                 cursor: pointer;
                 @media (max-width: 767px) {
                     cursor: default;
+                    top: 15px;
                 }
                 svg {
                     position: absolute;
@@ -235,6 +248,10 @@
                     }
                 }
             }
+        }
+        @media (max-width: 767px) {
+            min-height: 48px;
+            padding: 13px 50px 13px 20px;
         }
     }
 }
