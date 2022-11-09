@@ -1,9 +1,13 @@
-import { useState , useRef } from 'react';
+import { useState , useRef , useContext } from 'react';
 import { nanoid } from 'nanoid';
+
+import Context from '../../context';
 
 import './todoAddInput.scss';
 
-const TodoAddInput = ({addTask}) => {
+const TodoAddInput = () => {
+
+    const {addTask} = useContext(Context);
 
     const [task , setTask] = useState('');
 

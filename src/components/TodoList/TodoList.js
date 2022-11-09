@@ -1,10 +1,15 @@
+import { useContext } from "react";
+import Context from "../../context";
+
 import TodoItem from "../TodoItem/TodoItem";
 
 import NoTasks from "../NoTasks/NoTasks";
 
 import './todoList.scss';
 
-const TodoList = ({tasks , editTask , deleteTask , toggleCheckTask}) => {
+const TodoList = () => {
+
+    const {tasks} = useContext(Context);
 
     const renderTodos = (arr) => {
         return (
@@ -12,14 +17,11 @@ const TodoList = ({tasks , editTask , deleteTask , toggleCheckTask}) => {
                 {arr.map(({id , text , isChecked} , i) => {
                     return (
                         <TodoItem 
-                            key={id} 
+                            key={id}
+                            index={i}
                             id={id}
-                            todoNum={i}
-                            text={text} 
-                            isChecked={isChecked} 
-                            editTask={editTask}
-                            deleteTask={() => deleteTask(id)} 
-                            toggleCheckTask={() => toggleCheckTask(id)} 
+                            text={text}
+                            isChecked={isChecked}
                         />
                     )
                 })}
