@@ -1,12 +1,13 @@
-import { useState , useRef , useContext } from 'react';
+import { useState , useRef } from 'react';
 
-import Context from '../../context';
+import { useDispatch } from 'react-redux';
+import { deleteTask , toggleTask , editTask } from '../../actions';
 
 import './todoItem.scss';
 
 const TodoItem = ({index , id , text , isChecked}) => {
 
-    const {editTask , deleteTask , toggleCheckTask} = useContext(Context);
+    const dispatch = useDispatch();
 
     const [editField , setEditField] = useState('');
     
@@ -68,7 +69,7 @@ const TodoItem = ({index , id , text , isChecked}) => {
         <li className="todoItem">
             <div className="task todoItem__task" tabIndex="0"
                 onClick={closeEdit}>
-                <div className="task todoItem__task_btn-checkbox" onClick={() => toggleCheckTask(id)}>
+                <div className="task todoItem__task_btn-checkbox" onClick={() => dispatch(toggleTask(id))}>
                     {isChecked ? checked : unchecked}
                     <input readOnly checked={isChecked} type="checkbox" />
                 </div>
@@ -83,7 +84,7 @@ const TodoItem = ({index , id , text , isChecked}) => {
                     <path d="M 12.205078 1.0039062 C 11.87855 1.0059962 11.553783 1.1310493 11.310547 1.3808594 L 6.6464844 6.1230469 L 5.9511719 9.0488281 L 8.8769531 8.3535156 L 8.9746094 8.2558594 L 13.619141 3.6894531 C 14.118761 3.2029808 14.12374 2.3874144 13.630859 1.8945312 L 13.105469 1.3691406 C 12.859027 1.1226991 12.531606 1.0018122 12.205078 1.0039062 z M 12.210938 1.9960938 C 12.277619 1.9957637 12.344879 2.0226118 12.398438 2.0761719 L 12.923828 2.6015625 C 13.030945 2.7086795 13.030302 2.8690817 12.921875 2.9746094 L 12.919922 2.9746094 L 8.3769531 7.4433594 L 7.2988281 7.7011719 L 7.5546875 6.6269531 L 12.025391 2.0800781 L 12.025391 2.078125 C 12.078154 2.0239351 12.144256 1.9964238 12.210938 1.9960938 z M 3 2 C 1.895 2 1 2.895 1 4 L 1 12 C 1 13.105 1.895 14 3 14 L 11 14 C 12.105 14 13 13.105 13 12 L 13 5.703125 L 12 6.6855469 L 12 12 C 12 12.552 11.552 13 11 13 L 3 13 C 2.448 13 2 12.552 2 12 L 2 4 C 2 3.448 2.448 3 3 3 L 8.3183594 3 L 9.3027344 2 L 3 2 z"/>
                 </svg>
                 </div>
-                <div className="task todoItem__task_btn-delete" onClick={() => deleteTask(id)}>
+                <div className="task todoItem__task_btn-delete" onClick={() => dispatch(deleteTask(id))}>
                     <span className="task"></span>
                     <span className="task"></span>
                 </div>
@@ -96,7 +97,7 @@ const TodoItem = ({index , id , text , isChecked}) => {
                         onChange={(e) => setEditField(e.target.value)} 
                         onKeyPress={(e) => {
                             if(e.key === "Enter") {
-                                editTask(id , editField);
+                                dispatch(editTask({id , text: editField}));
                                 setEditField('');
                                 showTask();
                             }
@@ -104,7 +105,7 @@ const TodoItem = ({index , id , text , isChecked}) => {
                 />
                 <div className="todoItem__edit_btn-save" 
                         onClick={() => {
-                            editTask(id , editField);
+                            dispatch(editTask({id , text: editField}));
                             setEditField('');
                             showTask();
                         }}>

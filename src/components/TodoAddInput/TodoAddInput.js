@@ -1,14 +1,15 @@
-import { useState , useRef , useContext } from 'react';
+import { useState , useRef } from 'react';
 import { nanoid } from 'nanoid';
 
-import Context from '../../context';
+import { useDispatch } from 'react-redux';
+import { addTask } from '../../actions';
 
 import './todoAddInput.scss';
 
 const TodoAddInput = () => {
 
-    const {addTask} = useContext(Context);
-
+    const dispatch = useDispatch();
+    
     const [task , setTask] = useState('');
 
     const TodoAddInputRef = useRef(null);
@@ -27,7 +28,7 @@ const TodoAddInput = () => {
                     value={task}
                     onKeyPress={(e) => {
                         if(e.key === "Enter" && task !== '') {
-                            addTask({id: nanoid() , text: task , isChecked: false});
+                            dispatch(addTask({id: nanoid() , text: task , isChecked: false}));
                             setTask('');
                             focusOnTodoAddInput();
                         }
@@ -36,7 +37,7 @@ const TodoAddInput = () => {
             <button className="btn todoAddInput__btn"
                     onClick={() => {
                         if(task !== '') {
-                            addTask({id: nanoid() , text: task , isChecked: false});
+                            dispatch(addTask({id: nanoid() , text: task , isChecked: false}));
                             setTask('');
                             focusOnTodoAddInput();
                         }

@@ -1,4 +1,4 @@
-export const add = (value) => ({ type: 'ADD_TASK' , payload: value });
-export const del = (value) => ({ type: 'DELETE_TASK' , payload: value });
-export const toggle = (value) => ({ type: 'TOGGLE_CHECK_TASK' , payload: value });
-export const edit = (value) => ({ type: 'EDIT_TASK' , payload: value });
+export const addTask = (value) => ({ type: 'ADD_TASK' , payload: value });
+export const deleteTask = (value) => ({ type: 'DELETE_TASK' , payload: value });
+export const toggleTask = (value) => ({ type: 'TOGGLE_TASK' , payload: value });
+export const editTask = (value) => ({ type: 'EDIT_TASK' , payload: value });

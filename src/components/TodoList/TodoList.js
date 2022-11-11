@@ -1,16 +1,14 @@
-import { useContext } from "react";
-import Context from "../../context";
+import { useSelector } from "react-redux";
 
 import TodoItem from "../TodoItem/TodoItem";
-
 import NoTasks from "../NoTasks/NoTasks";
 
 import './todoList.scss';
 
 const TodoList = () => {
 
-    const {tasks} = useContext(Context);
-
+    const tasks = useSelector(state => state.tasks);
+    
     const renderTodos = (arr) => {
         return (
             <ul className="todoList__list">

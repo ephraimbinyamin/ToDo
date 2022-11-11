@@ -1,4 +1,6 @@
-const reducer = (state , action) => {
+const initialState = { tasks: [] };
+
+const reducer = (state = initialState , action) => {
     switch(action.type) {
         case 'ADD_TASK':
             return {
@@ -10,11 +12,11 @@ const reducer = (state , action) => {
                 ...state,
                 tasks: state.tasks.filter(item => item.id !== action.payload)
             }
-        case 'TOGGLE_CHECK_TASK':
+        case 'TOGGLE_TASK':
             return {
                 ...state,
                 tasks: state.tasks.map(item => {
-                    if(item.id == action.payload) {
+                    if(item.id === action.payload) {
                         return {
                             ...item,
                             isChecked: !item.isChecked
