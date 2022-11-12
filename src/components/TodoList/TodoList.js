@@ -8,6 +8,8 @@ import './todoList.scss';
 const TodoList = () => {
 
     const tasks = useSelector(state => state.tasks);
+
+    const localStorageTasks = JSON.parse(localStorage.getItem('tasks'));
     
     const renderTodos = (arr) => {
         return (
@@ -27,7 +29,7 @@ const TodoList = () => {
         )
     }
 
-    const renderedTasks = renderTodos(tasks);
+    const renderedTasks = renderTodos(localStorageTasks === null ? [] : localStorageTasks);
 
     return (
         <div className="todoList">
