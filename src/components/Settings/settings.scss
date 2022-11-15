@@ -1,0 +1,154 @@
+.settings {
+    position: absolute;
+    z-index: 15;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    &__overlay {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(10,10,10,.6);
+        opacity: 75%;
+    }
+    &__block {
+        position: absolute;
+        z-index: 20;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        max-height: 100vh;
+        max-width: 100vw;
+        height: 600px;
+        width: 300px;
+        background-color: var(--settings-background-color);
+        border: none;
+        border-radius: 8px;
+        overflow: auto;
+        box-shadow: var(--settings-box-shadow);
+        padding: 18px;
+        @media (max-width: 767px) {
+            background-color: var(--settings-background-mobile-color);
+        }
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        &_icon {
+            position: relative;
+            height: 16px;
+            width: 16px;
+            margin-right: 76px;
+            cursor: pointer;
+            @media (max-width: 767px) {
+                cursor: default;
+                margin-right: 20px;
+            }
+            span {
+                position: absolute;
+                top: 7.5px;
+                right: 0;
+                display: block;
+                background-color: var(--text-color);
+                height: 2px;
+                width: 14px;
+                &:first-child {
+                    width: 10px;
+                    top: 4.5px;
+                    right: unset;
+                    left: -1px;
+                    transform: rotate(-45deg);
+                }
+                &:last-child {
+                    width: 10px;
+                    top: 10.5px;
+                    right: unset;
+                    left: -1px;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+        &_title {
+            color: var(--text-color);
+            font-size: 22px;
+            @media (max-width: 767px) {
+                font-size: 17px;
+                margin: unset;
+            }
+        }
+    }
+    &__content {
+        margin-top: 35px;
+        &_section {
+            &_title {
+                color: var(--settings-section-title-color);
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
+        }
+        &_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+            &_title {
+                color: var(--text-color);
+                font-size: 15px;
+                @media (max-width: 767px) {
+                    font-size: 17px;
+                }
+            }
+            &_checkbox {
+                height: 16px;
+                width: 16px;
+                cursor: pointer;
+                @media (max-width: 767px) {
+                    cursor: default;
+                }
+                &_icon {
+                    height: 100%;
+                    width: 100%;
+                    transition: all 0.3s;
+                    &-unchecked {
+                        fill: var(--task-btns-color);
+                        &:hover {
+                            fill: var(--task-btns-hover-color);
+                        }
+                        @media (max-width: 767px) {
+                            fill: var(--task-btns-mobile-color);
+                        }
+                    }
+                    &-checked {
+                        fill: var(--task-btns-color);
+                        &:hover {
+                            fill: var(--task-btns-hover-color);
+                            @media (max-width: 767px) {
+                                fill: var(--task-btns-color);
+                            }
+                        }
+                    }
+                }
+                input {
+                    display: none;
+                }
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        .settings {
+            &__block {
+                height: 100%;
+                width: 100%;
+                border-radius: 0;
+            }
+        }
+    }
+}

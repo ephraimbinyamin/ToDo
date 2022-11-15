@@ -1,7 +1,47 @@
 @import '../../style/variables.scss';
 
 .todoItem {
+    position: relative;
     list-style-type: none;
+    &:hover {
+        .todoItem__btn-delete {
+            span {
+                background-color: var(--task-btns-color);
+            }
+            &:hover {
+                span {
+                    background-color: var(--task-btns-hover-color);
+                }
+            }
+        }
+    }
+    &:focus-within {
+        .todoItem__text {
+            z-index: 10;
+            border: 1px solid var(--border-hover-focus-color);
+        }
+        .todoItem__btn-delete {
+            span {
+                background-color: var(--task-btns-color);
+            }
+            &:hover {
+                span {
+                    background-color: var(--task-btns-hover-color);
+                }
+            }
+        }
+        @media (max-width: 767px) {
+            .todoItem__text {
+                border: 1px solid var(--border-color);
+            }
+            .todoItem__btn-delete {
+                display: block;
+                span {
+                    background-color: var(--task-btns-mobile-color);
+                }
+            }
+        }
+    }
     &:first-child {
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
@@ -13,245 +53,110 @@
     &:not(:first-child) {
         margin-top: -1px;
     }
-    &__task {
-        display: block;
-        position: relative;
-        z-index: 5;
-        min-height: 40px;
-        width: 100%;
-        padding: 9px 81px 9px 50px;
-        border-radius: inherit;
-        border: 1px solid var(--border-color);
-        &:hover {
-            .todoItem__task_btn {
-                &-delete {
-                    span {
-                        background-color: var(--task-btns-color);
-                    }
-                    &:hover {
-                        span {
-                            background-color: var(--task-btns-hover-color);
-                        }
-                    }
-                }
-                &-edit {
-                    svg {
-                        fill: var(--task-btns-color);
-                    }
-                    &:hover {
-                        svg {
-                            fill: var(--task-btns-hover-color);
-                        }
-                    }
-                }
-            }
-        }
-        &:focus {
-            z-index: 10;
-            border: 1px solid var(--border-hover-focus-color);
+    &__btn {
+        &-checkbox {
+            position: absolute;
+            z-index: 15;
+            top: 11.5px;
+            left: 22px;
+            height: 16px;
+            width: 16px;
+            cursor: pointer;
             @media (max-width: 767px) {
-                z-index: 5;
-                border: 1px solid var(--border-color);
+                cursor: default;
+                top: 15.5px;
             }
-            .todoItem {
-                &__task_btn {
-                    &-delete {
-                        span {
-                            background-color: var(--task-btns-color);
-                        }
+            &_icon {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                transition: all 0.3s;
+                &-unchecked {
+                    fill: var(--task-btns-color);
+                    &:hover {
+                        fill: var(--task-btns-hover-color);
+                    }
+                    @media (max-width: 767px) {
+                        fill: var(--task-btns-mobile-color);
                         &:hover {
-                            span {
-                                background-color: var(--task-btns-hover-color);
-                            }
-                        }
-                        @media (max-width: 767px) {
-                            display: block;
-                            span {
-                                background-color: var(--task-btns-mobile-color);
-                            }
+                            fill: var(--task-btns-mobile-color);
                         }
                     }
-                    &-edit {
-                        svg {
+                }
+                &-checked {
+                    fill: var(--task-btns-color);
+                    &:hover {
+                        fill: var(--task-btns-hover-color);
+                    }
+                    @media (max-width: 767px) {
+                        fill: var(--task-btns-color);
+                        &:hover {
                             fill: var(--task-btns-color);
                         }
-                        &:hover {
-                            svg {
-                                fill: var(--task-btns-hover-color);
-                            }
-                        }
-                        @media (max-width: 767px) {
-                            display: block;
-                            svg {
-                                fill: var(--task-btns-mobile-color);
-                            }
-                        }
                     }
                 }
             }
+            input {
+                display: none;
+            }
+        }
+        &-delete {
+            position: absolute;
+            z-index: 15;
+            top: 11.5px;
+            right: 17px;
+            height: 16px;
+            width: 16px;
+            background-color: transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+            span {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: -0.5px auto 0;
+                top: 50%;
+                height: 1.25px;
+                width: 16px;
+                background-color: transparent;
+                transition: all 0.3s;
+                &:first-child {
+                    transform: rotate(45deg);
+                }
+                &:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
+            @media (max-width: 767px) {
+                display: none;
+                cursor: default;
+                top: 15.5px;
+            }
+        }
+    }
+    &__text {
+        position: relative;
+        min-height: 40px;
+        width: 100%;
+        color: var(--text-color);
+        font-size: 17px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        outline: none;
+        padding: 9px 50px;
+        border: 1px solid var(--border-color);
+        border-radius: inherit;
+        &-crossed {
+            color: var(--text-crossed-color);
+            text-decoration: line-through;
         }
         @media (max-width: 767px) {
             min-height: 48px;
             padding: 13px 81px 13px 50px;
         }
-        &_btn {
-            &-checkbox {
-                position: absolute;
-                top: 11px;
-                left: 22px;
-                height: 16px;
-                width: 16px;
-                cursor: pointer;
-                @media (max-width: 767px) {
-                    cursor: default;
-                    top: 15px;
-                }
-                &_icon {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    transition: all 0.3s;
-                    &-unchecked {
-                        fill: var(--task-btns-color);
-                        &:hover {
-                            fill: var(--task-btns-hover-color);
-                        }
-                        @media (max-width: 767px) {
-                            fill: var(--task-btns-mobile-color);
-                        }
-                    }
-                    &-checked {
-                        fill: var(--task-btns-color);
-                        &:hover {
-                            fill: var(--task-btns-hover-color);
-                            @media (max-width: 767px) {
-                                fill: var(--task-btns-color);
-                            }
-                        }
-                    }
-                }
-                input {
-                    display: none;
-                }
-            }
-            &-edit {
-                position: absolute;
-                top: 10.5px;
-                right: 50px;
-                height: 16px;
-                width: 16px;
-                cursor: pointer;
-                @media (max-width: 767px) {
-                    display: none;
-                    cursor: default;
-                    top: 14.5px;
-                }
-                svg {
-                    fill: transparent;
-                    transition: all 0.3s;
-                }
-            }
-            &-delete {
-                position: absolute;
-                top: 11px;
-                right: 17px;
-                height: 16px;
-                width: 16px;
-                background-color: transparent;
-                transition: all 0.3s;
-                cursor: pointer;
-                @media (max-width: 767px) {
-                    display: none;
-                    cursor: default;
-                    top: 15px;
-                }
-                span {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    margin: -0.5px auto 0;
-                    top: 50%;
-                    height: 1.25px;
-                    width: 16px;
-                    background-color: transparent;
-                    transition: all 0.3s;
-                    &:first-child {
-                        transform: rotate(45deg);
-                    }
-                    &:last-child {
-                        transform: rotate(-45deg);
-                    }
-                }
-            }
-        }
-        &_text {
-            color: var(--text-color);
-            font-size: 17px;
-            max-width: 500px;
-            word-wrap: break-word;
-            white-space: pre-wrap;
-            @media (max-width: 767px) {
-                color: var(--text-mobile-color);
-            }
-            &-crossed {
-                color: var(--text-crossed-color);
-                text-decoration: line-through;
-            }
-        }
-    }
-    &__edit {
-        display: none;
-        position: relative;
-        min-height: 40px;
-        width: 100%;
-        padding: 9px 50px 9px 20px;
-        border-radius: inherit;
-        border: 1px solid var(--border-color);
-        &_field {
-            color: var(--text-color);
-            font-size: 17px;
-            background-color: transparent;
-            width: 100%;
-            outline: none;
-            border: none;
-            border-bottom: 1px solid var(--border-color);
-            padding: 0 10px;
-        }
-        &_btn {
-            &-save {
-                position: absolute;
-                top: 11px;
-                right: 17px;
-                height: 16px;
-                width: 16px;
-                cursor: pointer;
-                @media (max-width: 767px) {
-                    cursor: default;
-                    top: 15px;
-                }
-                svg {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50% , -50%);
-                    fill: var(--task-btns-color);
-                    transition: all 0.3s;
-                    @media (max-width: 767px) {
-                        fill: var(--task-btns-mobile-color);
-                    }
-                }
-                &:hover {
-                    svg {
-                        fill: var(--task-btns-hover-color);
-                    }
-                }
-            }
-        }
-        @media (max-width: 767px) {
-            min-height: 48px;
-            padding: 13px 50px 13px 20px;
-        }
     }
 }
+
+

@@ -14,11 +14,10 @@ const TodoList = () => {
     const renderTodos = (arr) => {
         return (
             <ul className="todoList__list">
-                {arr.map(({id , text , isChecked} , i) => {
+                {arr.map(({id , text , isChecked}) => {
                     return (
                         <TodoItem 
                             key={id}
-                            index={i}
                             id={id}
                             text={text}
                             isChecked={isChecked}

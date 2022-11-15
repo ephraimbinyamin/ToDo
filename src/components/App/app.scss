@@ -1,16 +1,46 @@
 @import '../../style/variables.scss';
 
 .app {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 100px 20px;
+    &__content {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 100px 20px 100px;
+    }
     &__header {
         color: var(--header-color);
         font-size: 45px;
         text-align: center;
         @media (max-width: 767px) {
             color: var(--header-mobile-color);
+        }
+    }
+    &__settings {
+        display: none;
+        &_icon {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
+            svg {
+                transition: all 0.3s;
+                fill: var(--task-btns-color);
+            }
+            &:hover {
+                svg {
+                    fill: var(--task-btns-hover-color)
+                }
+                @media (max-width: 767px) {
+                    svg {
+                        fill: var(--task-btns-color);
+                    }
+                }
+            }
+            @media (max-width: 767px) {
+                cursor: default;
+            }
         }
     }
 }
