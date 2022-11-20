@@ -12,13 +12,15 @@ body {
     --settings-box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
 
     --text-crossed-color: #808080;
-    --input-placeholder: #b3b3b3;
+    --input-placeholder-color: #5f6368;
+    --completed-title-color: #5f6368;
+    --completed-title-hover-color: #000;
 
     --task-btns-color: #808080;
     --task-btns-hover-color: #000;
     --task-btns-mobile-color: #000;
 
-    --btn-text-color: #808080;
+    --btn-text-color: #5f6368;
     --btn-text-hover-active-color: #fff;
     --btn-background-color: #fff;
     --btn-background-hover-active-color: #4d4d4d;
@@ -48,7 +50,9 @@ body.dark {
     --settings-box-shadow: 0 1px 3px 0 rgb(0 0 0 / 60%), 0 4px 8px 3px rgb(0 0 0 / 30%);
 
     --text-crossed-color: #808080;
-    --input-placeholder: #b3b3b3;
+    --input-placeholder-color: #b3b3b3;
+    --completed-title-color: #b3b3b3;
+    --completed-title-hover-color: #fff;
 
     --task-btns-color: #808080;
     --task-btns-hover-color: #fff;

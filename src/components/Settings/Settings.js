@@ -1,18 +1,23 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector , useDispatch } from 'react-redux';
+import { toggleTheme , toggleTaksToBottom } from '../../actions';
 
 import './settings.scss';
 
-if(localStorage.getItem('dark-theme') === 'true') {
-    document.body.classList.add('dark');
-}
-
 const Settings = () => {
 
-    const [darkTheme , setDarkTheme] = useState(localStorage.getItem('dark-theme') === 'true' ? true : false);
+    const dispatch = useDispatch();
 
-    if(localStorage.getItem('dark-theme') === 'true') {
-        document.body.classList.add('dark');
-    }
+    const {darkTheme , tasksToBottom} = useSelector(state => state);
+
+    useEffect(() => {
+        if(darkTheme) {
+            document.body.classList.add('dark');
+        }
+        else {
+            document.body.classList.remove('dark');
+        }
+    } , [darkTheme])
 
     const unchecked = (
         <svg className="settings__content_item_checkbox_icon settings__content_item_checkbox_icon-unchecked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="3 3 18 18" fill="#000">
@@ -42,28 +47,15 @@ const Settings = () => {
                     <div className="settings__content_section">
                         <div className="settings__content_section_title">Display Options</div>
                         <div className="settings__content_item">
-                            <h2 className="settings__content_item_title">Add new items to the bottom</h2>
-                            <div className="settings__content_item_checkbox">
-                                {false ? checked : unchecked}
-                                <input readOnly checked={false} type="checkbox" />
+                            <h2 className="settings__content_item_title">Move checked tasks to bottom</h2>
+                            <div className="settings__content_item_checkbox" onClick={() => dispatch(toggleTaksToBottom())}>
+                                {tasksToBottom ? checked : unchecked}
+                                <input readOnly checked={tasksToBottom} type="checkbox" />
                             </div>
                         </div>
                         <div className="settings__content_item">
                             <h2 className="settings__content_item_title">Enable dark theme</h2>
-                            <div className="settings__content_item_checkbox"
-                                onClick={() => {
-                                    if(localStorage.getItem('dark-theme') === 'true') {
-                                        document.body.classList.remove('dark');
-                                        localStorage.setItem('dark-theme' , 'false');
-                                        setDarkTheme(false);
-                                    }
-                                    else {
-                                        document.body.classList.add('dark');
-                                        localStorage.setItem('dark-theme' , 'true');
-                                        setDarkTheme(true);
-                                    }
-                                }}
-                            >
+                            <div className="settings__content_item_checkbox" onClick={() => dispatch(toggleTheme())}>
                                 {darkTheme ? checked : unchecked}
                                 <input readOnly checked={darkTheme} type="checkbox" />
                             </div>

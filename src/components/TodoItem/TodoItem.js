@@ -21,10 +21,7 @@ const TodoItem = ({id , text , isChecked}) => {
 
     return (
         <li className="todoItem">
-            <div className="todoItem__btn-checkbox" 
-                tabIndex="0"
-                onClick={() => dispatch(toggleTask(id))}
-                >
+            <div className="todoItem__btn-checkbox" tabIndex="0" onClick={() => dispatch(toggleTask(id))}>
                 {isChecked ? checked : unchecked}
                 <input readOnly checked={isChecked} type="checkbox" />
             </div>
@@ -34,10 +31,7 @@ const TodoItem = ({id , text , isChecked}) => {
                 suppressContentEditableWarning="true"
                 onBlur={(e) => dispatch(editTask({id , text: e.target.textContent}))}
                 >{text}</div>
-            <div className="todoItem__btn-delete" 
-                tabIndex="0"
-                onClick={() => dispatch(deleteTask(id))}
-                >
+            <div className="todoItem__btn-delete" tabIndex="0" onClick={() => dispatch(deleteTask(id))}>
                 <span></span>
                 <span></span>
             </div>

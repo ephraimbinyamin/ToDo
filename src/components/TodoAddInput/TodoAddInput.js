@@ -27,7 +27,7 @@ const TodoAddInput = () => {
                     onChange={(e) => setTask(e.target.value)} 
                     value={task}
                     onKeyPress={(e) => {
-                        if((e.key === "Enter" || e.key === "Tab") && task !== '') {
+                        if(e.key === "Enter" && task !== '') {
                             focusOnTodoAddInput();
                             dispatch(addTask({id: nanoid() , text: task , isChecked: false}));
                             setTask('');

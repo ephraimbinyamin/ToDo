@@ -7,4 +7,64 @@
         box-shadow: var(--box-shadow);
         border-radius: 5px;
     }
+    &__divider {
+        display: block;
+        border: 0.5px solid var(--border-color);
+        margin: 15px 0 0;
+    }
+    &__completed_header {
+        position: relative;
+        min-height: 50px;
+        padding: 15px 50px;
+        cursor: pointer;
+        &_title {
+            color: var(--completed-title-color);
+            line-height: 20px;
+            transition: all 0.3s;
+        }
+        &_icon {
+            position: absolute;
+            top: 16px;
+            left: 21px;
+            height: 18px;
+            width: 18px;
+            svg {
+                fill: var(--completed-title-color);
+                transition: all 0.3s;
+            }
+        }
+        &-active {
+            .todoList__completed_header_icon {
+                transform: rotate(90deg);
+            }
+        }
+        &:hover {
+            .todoList__completed_header {
+                &_title {
+                    color: var(--completed-title-hover-color);
+                }
+                &_icon {
+                    svg {
+                        fill: var(--completed-title-hover-color);
+                    }
+                }
+            }
+
+        }
+        @media (max-width: 767px) {
+            cursor: default;
+            &:hover {
+                .todoList__completed_header {
+                    &_icon {
+                        svg {
+                            fill: var(--completed-title-color);
+                        }
+                    }
+                    &_title {
+                        color: var(--completed-title-color);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -5,6 +5,7 @@ import Settings from "../Settings/Settings";
 import './app.scss';
 
 const App = () => {
+
     return (
         <div className="app">
             <div className="app__content">

@@ -57,21 +57,22 @@
         &-checkbox {
             position: absolute;
             z-index: 15;
-            top: 11.5px;
-            left: 22px;
-            height: 16px;
-            width: 16px;
+            top: 6.5px;
+            left: 18px;
+            height: 25px;
+            width: 25px;
             cursor: pointer;
             @media (max-width: 767px) {
                 cursor: default;
-                top: 15.5px;
+                top: 11px;
             }
             &_icon {
                 position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50% , -50%);
+                height: 16px;
+                width: 16px;
                 transition: all 0.3s;
                 &-unchecked {
                     fill: var(--task-btns-color);
@@ -105,10 +106,10 @@
         &-delete {
             position: absolute;
             z-index: 15;
-            top: 11.5px;
-            right: 17px;
-            height: 16px;
-            width: 16px;
+            top: 6.5px;
+            right: 13px;
+            height: 25px;
+            width: 25px;
             background-color: transparent;
             transition: all 0.3s;
             cursor: pointer;
@@ -132,7 +133,7 @@
             @media (max-width: 767px) {
                 display: none;
                 cursor: default;
-                top: 15.5px;
+                top: 11px;
             }
         }
     }
